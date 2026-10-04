@@ -98,7 +98,7 @@ section{padding:4rem 0;position:relative;}
 @media (min-width:900px){section{padding:5rem 0;}}
 
 /* ============================================================
-   NAVBAR — PROVEN WORKING PATTERN
+   NAVBAR
    ============================================================ */
 .navbar{
   position:sticky;top:0;z-index:1000;
@@ -122,7 +122,6 @@ section{padding:4rem 0;position:relative;}
 }
 .logo span{color:var(--gold);}
 
-/* ---------- HAMBURGER (mobile only) ---------- */
 .hamburger{
   display:flex;flex-direction:column;justify-content:center;
   gap:5px;padding:10px;
@@ -140,7 +139,6 @@ section{padding:4rem 0;position:relative;}
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-/* ---------- NAV LINKS (mobile: slide from right) ---------- */
 .nav-links{
   position:fixed;
   top:0;
@@ -162,15 +160,9 @@ section{padding:4rem 0;position:relative;}
   transition:transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
   -webkit-overflow-scrolling:touch;
 }
-.nav-links.open{
-  transform:translateX(0);
-}
+.nav-links.open{transform:translateX(0);}
 
-.nav-links li{
-  width:100%;
-  text-align:center;
-  list-style:none;
-}
+.nav-links li{width:100%;text-align:center;list-style:none;}
 
 .nav-links a{
   display:block;
@@ -198,11 +190,8 @@ section{padding:4rem 0;position:relative;}
   margin-top:0.5rem;
   text-align:center;
 }
-.nav-cta:hover{
-  box-shadow:0 0 25px var(--gold-glow);
-}
+.nav-cta:hover{box-shadow:0 0 25px var(--gold-glow);}
 
-/* ---------- BACKDROP (mobile only, plain dark overlay) ---------- */
 .nav-backdrop{
   display:none;
   position:fixed;
@@ -212,17 +201,10 @@ section{padding:4rem 0;position:relative;}
   opacity:0;
   transition:opacity 0.3s ease;
 }
-.nav-backdrop.active{
-  display:block;
-  opacity:1;
-}
+.nav-backdrop.active{display:block;opacity:1;}
 
-/* Prevent body scroll when menu open */
-body.menu-open{
-  overflow:hidden;
-}
+body.menu-open{overflow:hidden;}
 
-/* ---------- DESKTOP NAV (900px+) ---------- */
 @media (min-width:900px){
   .hamburger{display:none;}
   .nav-backdrop{display:none!important;}
@@ -244,10 +226,7 @@ body.menu-open{
     transition:none;
   }
 
-  .nav-links li{
-    width:auto;
-    text-align:left;
-  }
+  .nav-links li{width:auto;text-align:left;}
 
   .nav-links a{
     font-size:0.85rem;
@@ -561,6 +540,13 @@ body.menu-open{
   grid-column:1/-1;
 }
 
+/* Section footer buttons (Submit your celebration / fan page) */
+.submit-celebration,
+.submit-fan-page{
+  text-align:center;
+  margin-top:2.5rem;
+}
+
 /* ============================================================
    REGISTER CTA
    ============================================================ */
@@ -591,7 +577,6 @@ body.menu-open{
   font-size:0.75rem;color:rgba(176,184,196,0.6);
   margin-top:1rem;font-style:italic;
 }
-.submit-celebration{text-align:center;margin-top:2.5rem;}
 
 /* ============================================================
    TIMELINE
@@ -894,7 +879,10 @@ footer{
     <h2 class="section-title bebas">FEATURED PRABHAS FAN PAGES</h2>
     <p class="section-sub">Curated fan pages celebrating the Rebel Star.</p>
     <div class="cards-grid" id="fanPageGrid">
-      <div class="empty-state" id="fanPagesEmpty">No featured fan pages yet.</div>
+      <div class="empty-state" id="fanPagesEmpty">No featured fan pages yet. Submit your fan page using the button below.</div>
+    </div>
+    <div class="submit-fan-page">
+      <button class="btn btn-outline" id="fanPageFormBtn">SUBMIT YOUR FAN PAGE</button>
     </div>
   </div>
 </section>
@@ -982,10 +970,11 @@ footer{
 
 <script>
 /* ============================================================
-   EASY SETTINGS
+   EASY SETTINGS — CHANGE THESE VALUES
    ============================================================ */
 const FAN_CLUB_FORM    = "https://forms.gle/4Ej6FgMfiac34qcJ8";
 const CELEBRATION_FORM = "https://forms.gle/oeSn7qUvAnDAtSpb8";
+const FAN_PAGE_FORM    = "YOUR_FAN_PAGE_GOOGLE_FORM_URL"; // ← PASTE YOUR FAN PAGE FORM URL HERE
 const BIRTHDAY_DATE    = "2026-10-23T00:00:00+05:30";
 
 /* ============================================================
@@ -1014,7 +1003,7 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 /* ============================================================
-   2. MOBILE MENU — bulletproof
+   2. MOBILE MENU
    ============================================================ */
 const hamburger   = document.getElementById("hamburger");
 const navLinks    = document.getElementById("navLinks");
@@ -1036,7 +1025,6 @@ function closeMenu(){
   hamburger.setAttribute("aria-expanded","false");
 }
 
-// Toggle
 hamburger.addEventListener("click", function(e){
   e.stopPropagation();
   if (navLinks.classList.contains("open")) {
@@ -1046,15 +1034,12 @@ hamburger.addEventListener("click", function(e){
   }
 });
 
-// Tap backdrop to close
 navBackdrop.addEventListener("click", closeMenu);
 
-// Tap any nav link to close
 navLinks.querySelectorAll("a").forEach(function(link){
   link.addEventListener("click", closeMenu);
 });
 
-// Auto-close on desktop resize
 window.addEventListener("resize", function(){
   if (window.innerWidth >= 900 && navLinks.classList.contains("open")) {
     closeMenu();
@@ -1159,7 +1144,7 @@ if ("IntersectionObserver" in window){
 }
 
 /* ============================================================
-   7. FORM BUTTONS
+   7. GOOGLE FORM BUTTONS
    ============================================================ */
 function openFanClubForm(){
   if (!FAN_CLUB_FORM || FAN_CLUB_FORM === "YOUR_FAN_CLUB_GOOGLE_FORM_URL"){
@@ -1175,16 +1160,25 @@ function openCelebrationForm(){
   }
   window.open(CELEBRATION_FORM, "_blank", "noopener");
 }
+function openFanPageForm(){
+  if (!FAN_PAGE_FORM || FAN_PAGE_FORM === "YOUR_FAN_PAGE_GOOGLE_FORM_URL"){
+    alert("Fan Page Google Form URL not set yet.\n\nOpen index.html, find EASY SETTINGS at the top of <script>, and paste your Fan Page Form URL.");
+    return;
+  }
+  window.open(FAN_PAGE_FORM, "_blank", "noopener");
+}
 
-const navRegisterBtn  = document.getElementById("navRegisterBtn");
-const heroRegisterBtn = document.getElementById("heroRegisterBtn");
-const registerFormBtn = document.getElementById("registerFormBtn");
+const navRegisterBtn     = document.getElementById("navRegisterBtn");
+const heroRegisterBtn    = document.getElementById("heroRegisterBtn");
+const registerFormBtn    = document.getElementById("registerFormBtn");
 const celebrationFormBtn = document.getElementById("celebrationFormBtn");
+const fanPageFormBtn     = document.getElementById("fanPageFormBtn");
 
 if (navRegisterBtn)     navRegisterBtn.addEventListener("click", function(e){ e.preventDefault(); openFanClubForm(); });
 if (heroRegisterBtn)    heroRegisterBtn.addEventListener("click", function(e){ e.preventDefault(); openFanClubForm(); });
 if (registerFormBtn)    registerFormBtn.addEventListener("click", function(e){ e.preventDefault(); openFanClubForm(); });
 if (celebrationFormBtn) celebrationFormBtn.addEventListener("click", function(e){ e.preventDefault(); openCelebrationForm(); });
+if (fanPageFormBtn)     fanPageFormBtn.addEventListener("click", function(e){ e.preventDefault(); openFanPageForm(); });
 
 /* ============================================================
    8. NAVBAR SHADOW ON SCROLL
