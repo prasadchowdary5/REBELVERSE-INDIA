@@ -502,6 +502,21 @@ body.menu-open{overflow:hidden;}
   font-family:'Bebas Neue',sans-serif;
   font-size:1.25rem;color:var(--gold);letter-spacing:1px;
 }
+.celebration-card .address{
+  display:flex;
+  align-items:flex-start;
+  gap:0.35rem;
+  font-size:0.78rem;
+  color:var(--silver);
+  line-height:1.45;
+  margin-bottom:0.5rem;
+}
+.celebration-card .address::before{
+  content:'📍';
+  flex-shrink:0;
+  font-size:0.85rem;
+  line-height:1.4;
+}
 .celebration-card .type{font-size:0.85rem;color:var(--silver-light);}
 .celebration-card .meta{font-size:0.8rem;color:var(--silver);}
 .celebration-card .venue{font-size:0.8rem;color:var(--silver);margin-bottom:0.5rem;}
@@ -809,7 +824,7 @@ footer{
     <div class="stats-grid">
       <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Fan Clubs</div></div>
       <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Cities</div></div>
-      <div class="stat-card"><div class="stat-number">0</div><div class="stat-label">Celebrations</div></div>
+      <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Celebrations</div></div>
       <div class="stat-card"><div class="stat-number">0</div><div class="stat-label">Fan Pages</div></div>
     </div>
   </div>
@@ -888,9 +903,17 @@ footer{
     <h2 class="section-title bebas">REBEL CELEBRATIONS</h2>
     <p class="section-sub">Birthday celebrations happening across India.</p>
     <div class="cards-grid" id="celebrationGrid">
-      <div class="empty-state" id="celebrationsEmpty">
-        No celebrations announced yet. Submit your celebration using the button below.
+
+      <div class="celebration-card">
+        <img src="images/celebration1.jpg" alt="Blood Donation Camp poster" class="celebration-poster" loading="lazy">
+        <div class="club-name">TEAM BUJJIGADU</div>
+        <div class="type">Blood Donation Camp</div>
+        <div class="meta">October 15, 2026 · 7:00 AM</div>
+        <div class="venue">Ambedkar Stadium, Karimnagar, Telangana</div>
+        <div class="venue">Hyderabad, Telangana</div>
+        <a href="https://www.instagram.com/p/DeHYDgYzxUz/?stkn=eHRneW01c213c2cy" class="social-btn insta" target="_blank" rel="noopener">VIEW ON INSTAGRAM</a>
       </div>
+
     </div>
     <div class="submit-celebration">
       <button class="btn btn-outline" id="celebrationFormBtn">SUBMIT YOUR CELEBRATION</button>
