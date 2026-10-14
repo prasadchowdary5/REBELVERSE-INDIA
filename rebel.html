@@ -485,43 +485,68 @@ body.menu-open{overflow:hidden;}
 .social-btn:hover{border-color:var(--gold);color:var(--gold);box-shadow:0 0 15px var(--gold-glow);}
 .social-btn.insta{border-color:rgba(201,162,39,0.3);color:var(--gold);}
 
+/* ============================================================
+   CELEBRATION CARD — SIMPLE (POSTER + INSTAGRAM ONLY)
+   ============================================================ */
 .celebration-card{
   background:var(--card-bg);
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   border:1px solid var(--glass-border);
-  border-radius:12px;padding:1.5rem;
+  border-radius:12px;
+  padding:0.85rem;
   transition:var(--transition);
-  display:flex;flex-direction:column;gap:0.5rem;
+  display:flex;flex-direction:column;gap:0.85rem;
 }
 .celebration-card:hover{
   transform:translateY(-4px);
   border-color:rgba(201,162,39,0.25);
   box-shadow:0 12px 35px rgba(0,0,0,0.4);
 }
-.celebration-card .club-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.25rem;color:var(--gold);letter-spacing:1px;
+.celebration-card .celebration-poster{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:8px;
+  border:1px solid rgba(201,162,39,0.2);
+  background:var(--navy-dark);
+  cursor:pointer;
+  transition:transform 0.4s ease;
 }
-.celebration-card .address{
+.celebration-card .celebration-poster:hover{
+  transform:scale(1.02);
+}
+.celebration-card .celebration-insta{
   display:flex;
-  align-items:flex-start;
-  gap:0.35rem;
-  font-size:0.78rem;
-  color:var(--silver);
-  line-height:1.45;
-  margin-bottom:0.5rem;
+  align-items:center;
+  justify-content:center;
+  gap:0.5rem;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:0.9rem;
+  letter-spacing:2px;
+  padding:0.75rem 1rem;
+  border-radius:8px;
+  border:1px solid rgba(201,162,39,0.35);
+  color:var(--gold);
+  background:rgba(201,162,39,0.06);
+  transition:var(--transition);
+  text-transform:uppercase;
+  min-height:44px;
+  text-decoration:none;
 }
-.celebration-card .address::before{
-  content:'📍';
-  flex-shrink:0;
-  font-size:0.85rem;
-  line-height:1.4;
+.celebration-card .celebration-insta::before{
+  content:'📸';
+  font-size:0.95rem;
 }
-.celebration-card .type{font-size:0.85rem;color:var(--silver-light);}
-.celebration-card .meta{font-size:0.8rem;color:var(--silver);}
-.celebration-card .venue{font-size:0.8rem;color:var(--silver);margin-bottom:0.5rem;}
-.celebration-card .social-btn{align-self:flex-start;margin-top:0.3rem;}
+.celebration-card .celebration-insta:hover{
+  background:rgba(201,162,39,0.15);
+  border-color:var(--gold);
+  box-shadow:0 0 20px var(--gold-glow);
+  transform:translateY(-1px);
+}
 
+/* ============================================================
+   FAN PAGE CARD
+   ============================================================ */
 .fan-page-card{
   background:var(--card-bg);
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
@@ -862,7 +887,7 @@ footer{
         <p class="location">Hyderabad, Telangana</p>
         <div class="social-links">
           <a href="https://www.instagram.com/_team.rebel__?stkn=NXg2amptM2M2cnpo" class="social-btn insta" target="_blank" rel="noopener">Instagram</a>
-           <a href="https://x.com/_TeamRebel_?s=20" class="social-btn twitter" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://x.com/_TeamRebel_?s=20" class="social-btn twitter" target="_blank" rel="noopener">Twitter</a>
         </div>
       </div>
       <div class="fan-club-card" data-state="Telangana">
@@ -871,10 +896,10 @@ footer{
         <p class="location">Karimnagar, Telangana</p>
         <div class="social-links">
           <a href="https://www.instagram.com/teambujjigadu" class="social-btn insta" target="_blank" rel="noopener">Instagram</a>
-           <a href="https://x.com/KNRPrabhasFc" class="social-btn twitter" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://x.com/KNRPrabhasFc" class="social-btn twitter" target="_blank" rel="noopener">Twitter</a>
         </div>
       </div>
-       <div class="fan-club-card" data-state="Telangana">
+      <div class="fan-club-card" data-state="Telangana">
         <img src="images/club4.jpg" alt="Nizam Rebels logo" class="fan-club-dp" loading="lazy">
         <h3>NIZAM REBELS</h3>
         <p class="location">Hyderabad, Telangana</p>
@@ -888,7 +913,7 @@ footer{
         <p class="location">Warangal, Telangana</p>
         <div class="social-links">
           <a href="https://www.instagram.com/warangal_rebels_?stkn=Ymgzd2xheWx2cW9v" class="social-btn insta" target="_blank" rel="noopener">Instagram</a>
-           <a href="https://x.com/warangalrebels?s=11" class="social-btn twitter" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://x.com/warangalrebels?s=11" class="social-btn twitter" target="_blank" rel="noopener">Twitter</a>
         </div>
       </div>
       <div class="fan-club-card" data-state="Telangana">
@@ -897,7 +922,7 @@ footer{
         <p class="location">Hyderabad, Telangana</p>
         <div class="social-links">
           <a href="https://www.instagram.com/hyd_prabhasfans?stkn=d3hveHN3amUzYXBx" class="social-btn insta" target="_blank" rel="noopener">Instagram</a>
-           <a href="https://x.com/hyd_prabhasfans" class="social-btn twitter" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://x.com/hyd_prabhasfans" class="social-btn twitter" target="_blank" rel="noopener">Twitter</a>
         </div>
       </div>
       <div class="fan-club-card" data-state="Telangana">
@@ -906,9 +931,10 @@ footer{
         <p class="location">Karimnagar, Telangana</p>
         <div class="social-links">
           <a href="https://www.instagram.com/karimnagar_rebel_fans?stkn=ZnlycTAzdGdraTB6" class="social-btn insta" target="_blank" rel="noopener">Instagram</a>
-           <a href="https://x.com/Karimnagarrebel" class="social-btn twitter" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://x.com/Karimnagarrebel" class="social-btn twitter" target="_blank" rel="noopener">Twitter</a>
         </div>
       </div>
+    </div>
   </div>
 </section>
 
@@ -931,23 +957,21 @@ footer{
     <p class="section-sub">Birthday celebrations happening across India.</p>
     <div class="cards-grid" id="celebrationGrid">
 
+      <!-- ═══════════ TEMPLATE — copy from here ═══════════
+      <div class="celebration-card">
+        <img src="images/celebration1.jpg" alt="Celebration poster" class="celebration-poster" loading="lazy">
+        <a href="INSTAGRAM_POST_URL" class="celebration-insta" target="_blank" rel="noopener">View on Instagram</a>
+      </div>
+      ═══════════ TEMPLATE — copy to here ═══════════ -->
+
       <div class="celebration-card">
         <img src="images/celebration1.jpg" alt="Blood Donation Camp poster" class="celebration-poster" loading="lazy">
-        <div class="club-name">TEAM BUJJIGADU</div>
-        <div class="type">Blood Donation Camp</div>
-        <div class="meta">October 15, 2026 · 7:00 AM</div>
-        <div class="venue">Ambedkar Stadium</div>
-        <div class="venue">Karimnagar, Telangana</div>
-        <a href="https://www.instagram.com/p/DeHYDgYzxUz/?stkn=eHRneW01c213c2cy" class="social-btn insta" target="_blank" rel="noopener">VIEW ON INSTAGRAM</a>
+        <a href="https://www.instagram.com/p/DeHYDgYzxUz/?stkn=eHRneW01c213c2cy" class="celebration-insta" target="_blank" rel="noopener">View on Instagram</a>
       </div>
+
       <div class="celebration-card">
         <img src="images/celebration2.jpg" alt="Chatrapathi Fan Show poster" class="celebration-poster" loading="lazy">
-        <div class="club-name">HYDERABAD PRABHAS FANS</div>
-        <div class="type">Fan Show — Chatrapathi</div>
-        <div class="meta">October 23, 2026 · 8:00 AM</div>
-        <div class="venue">Aradhana 70MM Theatre, Tarnaka</div>
-        <div class="venue">Hyderabad, Telangana</div>
-        <a href="https://www.instagram.com/p/DeGeA0gSGJ0/?stkn=N3lpcmJwMTkwMTFs" class="social-btn insta" target="_blank" rel="noopener">VIEW ON INSTAGRAM</a>
+        <a href="https://www.instagram.com/p/DeGeA0gSGJ0/?stkn=N3lpcmJwMTkwMTFs" class="celebration-insta" target="_blank" rel="noopener">View on Instagram</a>
       </div>
 
     </div>
@@ -1038,7 +1062,7 @@ footer{
         <a href="#gallery">GALLERY</a>
       </div>
       <div class="footer-social">
-      <a href="https://www.instagram.com/rebelverse.india?stkn=ODBhYzh5bW51YmRr" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://www.instagram.com/rebelverse.india?stkn=ODBhYzh5bW51YmRr" target="_blank" rel="noopener">INSTAGRAM</a>
       </div>
       <div class="footer-bottom">
         <p>© 2026 Rebelverse India</p>
@@ -1060,7 +1084,7 @@ footer{
    ============================================================ */
 const FAN_CLUB_FORM    = "https://forms.gle/4Ej6FgMfiac34qcJ8";
 const CELEBRATION_FORM = "https://forms.gle/oeSn7qUvAnDAtSpb8";
-const FAN_PAGE_FORM    = "https://forms.gle/VH1NiQPFSLzCweGp9"; // ← PASTE YOUR FAN PAGE FORM URL HERE
+const FAN_PAGE_FORM    = "https://forms.gle/VH1NiQPFSLzCweGp9";
 const BIRTHDAY_DATE    = "2026-10-23T00:00:00+05:30";
 
 /* ============================================================
@@ -1186,7 +1210,7 @@ filterButtons.forEach(function(btn){
 });
 
 /* ============================================================
-   5. LIGHTBOX
+   5. LIGHTBOX (gallery + celebration posters)
    ============================================================ */
 const lightbox      = document.getElementById("lightbox");
 const lightboxImg   = document.getElementById("lightboxImg");
@@ -1196,6 +1220,15 @@ document.querySelectorAll(".gallery-item").forEach(function(item){
   item.addEventListener("click", function(){
     const src = item.dataset.src || item.querySelector("img").src;
     lightboxImg.src = src;
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+/* ---------- Celebration poster lightbox ---------- */
+document.querySelectorAll(".celebration-poster").forEach(function(poster){
+  poster.addEventListener("click", function(){
+    lightboxImg.src = poster.src;
     lightbox.classList.add("active");
     document.body.style.overflow = "hidden";
   });
